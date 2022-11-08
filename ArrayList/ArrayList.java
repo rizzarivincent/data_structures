@@ -52,6 +52,10 @@ public class ArrayList<T> {
     return this.size;
   }
 
+  public boolean isEmpty() {
+    return this.size == 0;
+  }
+
   private void checkSize(int i) {
     if (i < 0 || i > this.size)
       throw new IllegalArgumentException();
