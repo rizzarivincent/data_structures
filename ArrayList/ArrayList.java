@@ -1,4 +1,8 @@
-public class ArrayList<T> {
+package ArrayList;
+
+import Interfaces.List;
+
+public class ArrayList<T> implements List<T> {
   private final int INITIAL_CAPACITY = 8;
 
   private Object[] arr;
@@ -48,12 +52,27 @@ public class ArrayList<T> {
     return removed;
   }
 
+  public T remove(T t) {
+    int i = findIndex(t);
+    if (i == -1)
+      return null;
+    return remove(i);
+  }
+
   public int size() {
     return this.size;
   }
 
   public boolean isEmpty() {
     return this.size == 0;
+  }
+
+  private int findIndex(T t) {
+    for (int i = 0; i < this.size; i++) {
+      if (arr[i] == t)
+        return i;
+    }
+    return -1;
   }
 
   private void checkSize(int i) {
